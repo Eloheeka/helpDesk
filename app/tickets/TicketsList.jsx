@@ -1,5 +1,9 @@
 async function getTickets() {
-  const res = await fetch ('http://localhost:3000/api/tickets', {cache: 'no-store'});
+  const res = await fetch ('http://localhost:3000/api/tickets', {
+    next : {
+      revalidate:0
+    }
+  });
   return res.json();
 }
 
@@ -7,7 +11,7 @@ export default  async function TicketsList() {
   const tickets = await getTickets();
   return (
     <>
-      {tickets.mao((ticket) => (
+      {tickets.map((ticket) => (
         <div key={ticket.id} className="card my-5">
           <h3>{ticket.title}</h3>
           <p>{ticket.description.slice(0,200)}...</p>
@@ -16,7 +20,9 @@ export default  async function TicketsList() {
           </div>
         </div>
       ))}
-    
+        {tickets.length === 0 && (
+          <p className="text-center">No tickets to display</p>
+        )}
     
     </>
   )
