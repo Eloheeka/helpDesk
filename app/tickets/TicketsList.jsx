@@ -13,11 +13,14 @@ export default  async function TicketsList() {
     <>
       {tickets.map((ticket) => (
         <div key={ticket.id} className="card my-5">
+      <Link href={'/tickets'}>
+         
           <h3>{ticket.title}</h3>
           <p>{ticket.description.slice(0,200)}...</p>
           <div className= {`pill ${ticket.priority}`}>
             {ticket.priority} priority
           </div>
+      </Link>
         </div>
       ))}
         {tickets.length === 0 && (
