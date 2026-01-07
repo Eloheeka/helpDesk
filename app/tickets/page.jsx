@@ -2,6 +2,10 @@ import react from 'react'
 
 export default function tickets() {
   return (
-    <div>Ticket page</div>
+    <main>
+      <div>
+        <h2>Tickets</h2>
+      </div>
+    </main>
   )
 }
