@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 async function getTickets() {
 
 await new Promise (resolve => setTimeout(resolve,1000))
 
-  const res = await fetch ('http://localhost:3000/api/tickets', {
+  const res = await fetch ('http://localhost:4000/tickets', {
     next : {
       revalidate:0
     }
@@ -19,7 +21,7 @@ export default  async function TicketsList() {
       <Link href={'/tickets'}>
          
           <h3>{ticket.title}</h3>
-          <p>{ticket.description.slice(0,200)}...</p>
+          <p>{ticket.body.slice(0,200)}...</p>
           <div className= {`pill ${ticket.priority}`}>
             {ticket.priority} priority
           </div>

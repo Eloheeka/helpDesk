@@ -1,7 +1,7 @@
 export const dynamicParams = true;
 
 export async function generateStaticParams(){
-    const res = await fetch ('http://localhost:3000/api/tickets');
+    const res = await fetch ('http://localhost:4000/tickets');
     const tickets = await res.json();
     return tickets.map((ticket) => ({
         id:ticket.id
@@ -12,7 +12,7 @@ export async function generateStaticParams(){
 async function getTicket() {
   await new Promise (resolve => setTimeout(resolve,1000))
 
-  const res = await fetch ('http://localhost:3000/api/tickets/' + id, {
+  const res = await fetch ('http://localhost:4000/tickets/' + id, {
     next : {
       revalidate:60
     }
