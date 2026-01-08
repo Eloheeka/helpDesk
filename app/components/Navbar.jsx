@@ -7,7 +7,7 @@ export default function Navbar()   {
   return (
     <div>
       <nav>
-           <Image 
+           {/* <Image 
               src={photo}
               alt='Dojo HelpDesk logo'
               width={50}
@@ -15,7 +15,7 @@ export default function Navbar()   {
               quality={100}
               placeholder = 'blur'  
               
-           />
+           /> */}
           <h1>Help-desk</h1>
           <Link href="/">Dashboard</Link>
           <Link href="/tickets">Tickets</Link>
