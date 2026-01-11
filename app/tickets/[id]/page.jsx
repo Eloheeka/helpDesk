@@ -1,4 +1,4 @@
-export const dynamicParams = true;
+export const dynamicParams = 'force-dynamic';
 
 export async function generateStaticParams(){
     const res = await fetch ('http://localhost:4000/tickets');
